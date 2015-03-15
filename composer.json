@@ -1,0 +1,11 @@
+{
+    "name": "jaydenguo/gjnorm",
+    "description": "orm.",
+    "keywords": ["orm", "gjnorm"],
+    "license": "MIT",
+    "type": "package",
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "minimum-stability": "dev"
+}
