@@ -4,8 +4,8 @@
     "keywords": ["orm", "gjnorm"],
     "license": "MIT",
     "type": "package",
-    "require-dev": {
-        "phpunit/phpunit": "~4.0"
+    "require": {
+        "mockery/mockery": "0.9.*"
     },
     "minimum-stability": "dev"
 }
