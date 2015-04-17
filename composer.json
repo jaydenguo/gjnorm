@@ -1,11 +1,29 @@
 {
     "name": "jaydenguo/gjnorm",
     "description": "orm.",
+    "type": "Library",
     "keywords": ["orm", "gjnorm"],
     "license": "MIT",
-    "type": "package",
+    "authors": [
+        {
+            "name": "jayden guo",
+            "email": "453539025@qq.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "mockery/mockery": "0.9.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gjnorm\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "config/database.php",
+            "src/functions.php"
+        ]
     },
     "minimum-stability": "dev"
 }
