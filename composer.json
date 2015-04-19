@@ -15,7 +15,10 @@
 
     },
     "autoload": {
-        "classmap": ["gjnorm"],
+        "classmap": [
+            "src/Exception",
+            "src/Relation"
+        ],
         "psr-4": {
             "Gjnorm\\": "src/"
         }
