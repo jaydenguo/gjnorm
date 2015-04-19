@@ -16,6 +16,7 @@
     },
     "autoload": {
         "classmap": [
+            "src",
             "src/Exception",
             "src/Relation"
         ],
