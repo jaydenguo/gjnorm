@@ -144,7 +144,7 @@ class SqlBuilder {
         $orders = array_map(
             function($order)
             {
-                return $this->helper->warp($order['columns']).' '.$order['direction'];
+                return $this->helper->wrap($order['columns']).' '.$order['direction'];
             },
             $this->material->orders
         );
@@ -181,7 +181,7 @@ class SqlBuilder {
 
     protected function buildHavingBasic($having)
     {
-        $column = $this->helper->warp($having['column']);
+        $column = $this->helper->wrap($having['column']);
         $this->addBindings($having['value']);
         $parameter = $this->parameter($having['value']);
 
@@ -279,7 +279,7 @@ class SqlBuilder {
             return "{$logic} {$expression}";
         }
 
-        $firstOperand = $this->helper->warp($clause['firstOperand']);
+        $firstOperand = $this->helper->wrap($clause['firstOperand']);
         if ($clause['isParameter'])
         {
             $this->addBindings($clause['secondOperand']);
@@ -287,7 +287,7 @@ class SqlBuilder {
         }
         else
         {
-            $secondOperand = $this->helper->warp($clause['secondOperand']);
+            $secondOperand = $this->helper->wrap($clause['secondOperand']);
         }
 
         return "{$clause['logic']} {$firstOperand} {$clause['operator']} {$secondOperand}";
@@ -377,7 +377,7 @@ class SqlBuilder {
     protected function buildWhereDate($type, $where)
     {
         $value = $this->parameter($where['value']);
-        $column = $this->helper->warp($where['column']);
+        $column = $this->helper->wrap($where['column']);
 
         return "{$type}({$column}) {$where['operator']} {$value}";
     }
@@ -397,7 +397,7 @@ class SqlBuilder {
     protected function buildWhereSub($where)
     {
         $select = $this->buildSelectSub($where['material']);
-        $column = $this->helper->warp($where['column']);
+        $column = $this->helper->wrap($where['column']);
 
         return "{$column} {$where['operator']} ({$select})";
 

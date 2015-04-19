@@ -14,7 +14,7 @@ class SqlBuilderHelper {
     {
         if ($this->isExpression($value)) return $value->getValue();
 
-        return $this->warp("{$this->tablePrefix}{$value}");
+        return $this->wrap("{$this->tablePrefix}{$value}");
     }
 
     protected function wrapValue($value)
@@ -24,7 +24,7 @@ class SqlBuilderHelper {
         return '`'.str_replace('`', '``', $value).'`';
     }
 
-    public function warp($value)
+    public function wrap($value)
     {
         if ($this->isExpression($value)) return $value->getValue();
 
@@ -34,7 +34,7 @@ class SqlBuilderHelper {
         {
             $sections = explode(' ', $value);
 
-            return $this->warp($sections[0]).' as '.$this->warpValue($sections[2]);
+            return $this->wrap($sections[0]).' as '.$this->warpValue($sections[2]);
         }
 
         //如果是带有表名的列名，我们会对表名和列表分别进行处理
