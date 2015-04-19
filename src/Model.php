@@ -84,7 +84,11 @@ class Model{
         {
             $this->config = include('../config/database.php');
         }
-        $this->config = $config;
+        else
+        {
+            $this->config = $config;
+        }
+
         if (empty($this->prefix))
         {
             $this->prefix = $this->getConfig('prefix');
