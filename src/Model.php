@@ -80,6 +80,10 @@ class Model{
         $this->material = is_null($material) ? new SqlMaterial() : $material;
         $this->builder = is_null($builder) ? new SqlBuilder($this->material) : $builder;
         $this->preprocessor = is_null($preprocessor) ? new SqlPreprocessor($this->material) : $preprocessor;
+        if (empty($config))
+        {
+            $this->config = include('../config/database.php');
+        }
         $this->config = $config;
         if (empty($this->prefix))
         {
@@ -107,12 +111,11 @@ class Model{
 
     public function connect()
     {
-        $dbConfig = include('./config/database.php');
-        $dbHost = $dbConfig['db_host'];
-        $dbName = $dbConfig['db_name'];
-        $dbUser = $dbConfig['db_user'];
-        $dbPassword = $dbConfig['db_password'];
-        $dbPort = $dbConfig['db_port'];
+        $dbHost = $this->getConfig('host');
+        $dbName = $this->getConfig('name');
+        $dbUser = $this->getConfig('user');
+        $dbPassword = $this->getConfig('password');
+        $dbPort = $this->getConfig('port');
         try
         {
             $dsn = 'mysql:dbhost='.$dbHost.';dbname='.$dbName.';dbport='.$dbPort;
