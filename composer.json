@@ -12,9 +12,10 @@
         }
     ],
     "require": {
-        "mockery/mockery": "0.9.*"
+
     },
     "autoload": {
+        "classmap": ["gjnorm"],
         "psr-4": {
             "Gjnorm\\": "src/"
         }
