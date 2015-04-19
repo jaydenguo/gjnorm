@@ -22,13 +22,14 @@
         ],
         "psr-4": {
             "Gjnorm\\": "src/"
-        }
-    },
-    "autoload-dev": {
+        },
         "files": [
             "config/database.php",
             "src/functions.php"
         ]
+    },
+    "autoload-dev": {
+
     },
     "minimum-stability": "dev"
 }
